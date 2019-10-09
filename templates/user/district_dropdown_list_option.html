@@ -1,0 +1,8 @@
+<option value="00"> select </option>
+{% for d in district %}
+<option value="{{ d.District }}">
+{{ d.District }} </option>
+{% empty %}
+<option value="00"> No District </option>
+
+{% endfor %}

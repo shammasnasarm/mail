@@ -1,0 +1,8 @@
+<option value="00"> select </option>
+{% for s in state %}
+<option value="{{ s.State }}">
+{{ s.State }} </option>
+{% empty %}
+<option value="00"> No State </option>
+
+{% endfor %}

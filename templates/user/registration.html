@@ -1,0 +1,201 @@
+{% extends 'user/basereg.html' %}
+{% load static %}
+
+
+{% block title %} Register {% endblock %}
+
+{% block pagecontent %}
+<form action="{% url 'saveuser' %}" method="post" name="myform" class="box">
+
+
+{% csrf_token %}
+
+<h1> register here </h1>
+
+
+  <input type="text" name="txtfirst" id="txtfirst" autofocus placeholder="First_Name" required> 
+
+  <input type="text" name="txtlast" id="txtlast" autofocus placeholder="Last_Name" required>
+
+  <input type="text" name="txtage" id="txtage" onFocus="(this.type='date')" onBlur="(this.type='text')" placeholder="Date of Birth" required> 
+  
+   
+<!--
+  <input type="radio" name="radgender" id="radgender" value="Male"/>  
+ Male
+                       
+  <input type="radio" name="radgender" id="radgender" value="Female"/>  <label>
+ Female
+                   
+
+  <textarea name="txtaddress" id="txtaddress" rows="6" cols="22" placeholder="Address" required/></textarea>
+
+  <select name="country" id="country" required>
+    <option value="00"> Country </option>
+   
+{% for n in data %}
+
+    <option value="{{ n.Country }}"> {{ n.Country }} </option>
+    
+{% endfor %}
+
+  </select>
+
+  <select name="state" id="state" required>
+    <option value="00"> State </option>
+  </select>
+
+  <select name="district" id="district">
+    <option value="00"> District </option>
+  </select>
+
+  <input type="text" name="txtphone" id="txtphone" placeholder="Tele-Phone" required> 
+
+
+
+{% for c in hob %}
+    <input type="checkbox" name="chkhob" id="chkhob" value="{{c.Hobby}}" /> 
+    {{c.Hobby}}
+    {% endfor %} 
+ 
+  <select name="question" id="question" required>
+    <option value="00"> Security_Question </option>
+    
+{% for q in sec %}
+
+    <option value="{{ q.Security_Question }}"> {{ q.Security_Question }} </option>
+    
+{% endfor %}
+
+  </select>
+  <input type="text" name="txtans" id="txtans" placeholder="Answer" required />
+
+-->
+  <input type="mail" name="txtemail" id="txtemail" placeholder="Email" required> 
+
+  <input type="mail" name="txtuser" id="txtuser" placeholder="Username" required>
+
+  <input type="password" name="txtpass" id="txtpass" placeholder="Password" required> 
+
+  
+
+  
+
+  <input type="submit" name="btnsave" id="btnsave" value="Save" /> 
+
+
+
+</form>
+
+
+
+
+
+
+
+
+
+<script>
+$(document).ready(function(){
+$("#country").change(function()
+{
+
+var countryid=$(this).val();
+
+
+$.ajax({
+url:'{% url "getstate" %}',
+data:{
+'cid':countryid
+},
+success:function(data){
+
+$("#state").html(data);
+}
+
+
+});
+
+});
+});
+
+
+
+
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#state").change(function()
+{
+
+var stateid=$(this).val();
+
+
+$.ajax({
+url:'{% url "getdistrict" %}',
+data:{
+'sid':stateid
+},
+success:function(data){
+
+$("#district").html(data);
+}
+
+
+});
+
+});
+});
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<script>
+$(document).ready(function(){
+$("#txtuser").change(function () { 
+
+var tusername = $(this).val();
+
+$.ajax({
+url: '{% url "validate_username" %}',
+data: {
+'Username': tusername
+},
+dataType: 'json',
+success: function (data) {
+
+if (data.is_taken) {
+var msg= data.error_message;
+//$( ".inner" ).append( "<p>Sorry</p>"+msg );
+//console.log(msg, 'change')
+alert("Sorry "+msg);
+$("#btnsave").hide();
+}
+else
+{
+alert("Username is valid");
+$("#btnsave").show();
+}
+}
+});
+
+
+});
+});
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,162 @@
+{% load static %}
+<html>
+<head>
+<title>Mail | Inbox</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="{% static 'Medic_template/css/style.css' %}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{% static 'Medic_template/css/coin-slider.css' %}" />
+<script type="text/javascript" src="{% static 'Medic_template/js/cufon-yui.js' %}"></script>
+<script type="text/javascript" src="{% static 'Medic_template/js/cufon-quicksand.js' %}"></script>
+<script type="text/javascript" src="{% static 'Medic_template/js/jquery-1.4.2.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'Medic_template/js/script.js' %}"></script>
+<script type="text/javascript" src="{% static 'Medic_template/js/coin-slider.min.js' %}"></script>
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+        <h1> My Mail <small>mail service</small></h1>
+      </div>
+      <div class="menu_nav">
+        <ul>
+          <li><a href="{% url 'userhome' %}"> Home </a></li>
+		  
+		  <li><a href="{% url 'profile' %}"> Profile </a></li>
+     
+		  <li><a href="{% url 'logout' %}"> Logout </a></li>
+		  
+        </ul>
+      </div>
+      <div class="clr"></div>
+      <div class="slider">
+        <div id="coin-slider"> <a href="#"><img src="{% static 'Medic_template/images/slide1.jpg' %}" width="935" height="293" alt="" /> </a> <a href="#"><img src="{% static 'Medic_template/images/slide2.jpg' %}" width="935" height="293" alt="" /> </a> <a href="#"><img src="{% static 'Medic_template/images/slide3.jpg' %}" width="935" height="293" alt="" /> </a> </div>
+        <div class="clr"></div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">
+          <h2>Inbox</h2>
+        </div>
+        <div class="article">
+          <div class="clr">
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		 
+<form action="{% url 'savemail' %}" method="post" >
+{% csrf_token %}
+<div class="tabhead">
+<table width="628">
+  <tr>
+    <td width="12"><div align="center"><span class="style1"></span></div></td>
+    <td width="87" height="65"> <div align="left" class="style2">From </div></td>
+    <td width="426"><span class="style2"> Subject </span></td>
+    <td width="83"><span class="style2"> Date </span></td>
+  </tr></table>
+</div>
+	<div class="user3">
+	<table width="626" height="60">
+{% if data %}
+{% for m in data %}
+    <tr>
+      
+      <td width="20">
+        <div align="center">
+          <input type="checkbox" name="chk[]" id="chk[]"  value="{{ m.id }}"> 
+      </div></td>
+    
+<td width="93"> <a href="{% url 'viewmessage' m.pk %}">{{ m.From.first_name }} {{m.From.last_name}} </a> </td>
+    <td width="411"> <a href="{% url 'viewmessage' m.pk %}">{{ m.Subject }} </a></td>
+    <td width="86"> <a href="{% url 'viewmessage' m.pk %}">{{ m.Date }} </a></td>
+    </tr>
+  {% endfor %}
+  {% endif %}
+  </table>
+  </div>
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+		  
+		  <div class="article">
+          <div class="clr">
+		  
+		  
+		  <div class="button">
+		   <div align="center">
+      <input type="submit" name="btnsave" id="btnsave" value="save" /> 
+      		</div>
+		  </div>
+		  </div>
+		  
+		  
+		  
+	</form>	  
+		  
+		  
+	
+	
+	
+	
+	
+		  
+		  
+		  
+</div>
+		  
+      </div>
+	  
+	 
+      <div class="sidebar">
+        
+        <div class="clr"></div>
+        <div class="gadget">
+          <h2 class="star"><span>Sidebar</span> Menu</h2>
+          <div class="clr"></div>
+          <ul class="sb_menu">
+          <li><a href="{% url 'composemail' %}"> Composemail </a></li>
+          <li><a href="{% url 'inbox' %}"> Inbox </a></li>
+          <li><a href="{% url 'savedmails' %}"> Savemails </a></li>
+          <li><a href="{% url 'addcontact' %}"> Add Contacts </a></li>
+		  
+		  <li><a href="{% url 'spam' %}"> Spam </a></li>
+          </ul>
+        </div>
+       
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  
+  
+</body>
+</html>

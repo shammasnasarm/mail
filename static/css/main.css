@@ -1,0 +1,199 @@
+/* CSS Document */
+/* CSS Document */
+body{
+margin:0px;
+background:url(image/photo-02.jpg);
+background-repeat:no-repeat;
+background-size:cover;
+background-color:#000000;
+
+}
+
+.nav {
+    width:30px;
+	padding:40px;
+	position:absolute;
+	top:40%;
+	left:3%;
+	float:left;
+	transform:translate(-50%,-50%);
+	background:rgba(33,41,51,.3);
+	text-align:left;
+	height:400px;
+	border-radius:24px;
+	}
+	
+.heading {
+	width:1000px;
+	padding:40px;
+	position:absolute;
+	top:4%;
+	left:12%;
+	text-align:center;
+    text-transform:lowercase;
+	}
+
+
+.user2 {
+
+	padding:40px;
+	position:absolute;
+	background-color:rgba(15,55,101,.5);
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	text-align:left;
+	
+	border-radius:24px;
+	}
+
+.user3 {
+    width:1120px;
+	padding:40px;
+	position:absolute;
+	background-color:rgba(15,55,101,.5);
+	top:53%;
+	left:55%;
+	float:left;
+	right:10%;
+	transform:translate(-50%,-50%);
+	text-align:left;
+	height:310px;
+	overflow:auto;
+	}
+	
+.button {
+	width:30px;
+	padding:40px;
+	position:absolute;
+	bottom:1%;
+	left:12%;
+	}
+	
+.button input[type="submit"], .user2 input[type="submit"], .user3 input[type="submit"]{
+border:0;
+background:none;
+display:block;
+margin:10px auto;
+text-align:center;
+border:2px solid #FFFFFF;
+padding:14px 10px;
+width:200px;
+outline:none;
+color:#FFFFFF;
+border-radius:24px;
+transition:0.25s;
+cursor:pointer;
+}
+
+tabhead {
+	width:1155px;
+	padding:20px;
+	position:absolute;
+	background-color:rgba(15,55,101,1);
+	top:21%;
+	left:55%;
+	float:left;
+	right:10%;
+	transform:translate(-50%,-50%);
+	height:10px;
+	}
+	
+	
+.tabhead table{
+	width:1180px;
+	position:absolute;
+	background-color:rgba(15,55,101,.1);
+	top:21%;
+	left:54.2%;
+	float:left;
+	right:10%;
+	transform:translate(-50%,-50%);
+	height:1px;
+	color:#FFFFFF;
+	}
+	
+
+	
+.user2 table, .user3 table{
+float:right;
+margin:2px auto;
+color:#FFFFFF;
+font-size:18px;
+font-style:italic;
+table-align:left;
+text-align:left;
+}
+
+
+.user2 a, .user3 a{
+color:#FFFFFF;
+}
+
+
+.nav a{
+text-align:left;
+color:#FFFFFF;
+}
+
+
+
+.user2 h1, .user3 h1{
+text-align:center;
+text-transform:lowercase;
+color:#CCCCCC;
+}
+
+
+
+
+.nav table{
+	text-align:left;
+	align:left;
+	}
+
+h1{
+color:#FFFFFF;
+font-weight:900;
+font-size:32px;
+font-family:"Times New Roman", Times, serif;
+}	
+	
+.comps {
+    width:500px;
+	padding:40px;
+	position:fixed;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	background:rgba(33,41,51,.8);
+	text-align:left;
+	color:#FFFFFF;
+	}
+	
+.comps table{
+    font-size:16px;
+	text-align:left;
+	color:#FFFFFF;
+	
+	}
+	
+	
+.comps input[type="submit"]{
+border:0;
+background:none;
+display:block;
+margin:10px auto;
+text-align:center;
+border:2px solid #FFFFFF;
+padding:14px 10px;
+width:200px;
+outline:none;
+color:#FFFFFF;
+border-radius:24px;
+transition:0.25s;
+cursor:pointer;
+}
+
+
+	

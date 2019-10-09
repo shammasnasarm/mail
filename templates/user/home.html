@@ -1,0 +1,358 @@
+{% load static %}
+<html>
+<head>
+<title>Mail | Profile</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="{% static 'Medic_template/css/style.css' %}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{% static 'Medic_template/css/coin-slider.css' %}" />
+<script type="text/javascript" src="{% static 'Medic_template/js/cufon-yui.js' %}"></script>
+<script type="text/javascript" src="{% static 'Medic_template/js/cufon-quicksand.js' %}"></script>
+<script type="text/javascript" src="{% static 'Medic_template/js/jquery-1.4.2.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'Medic_template/js/script.js' %}"></script>
+<script type="text/javascript" src="{% static 'Medic_template/js/coin-slider.min.js' %}"></script>
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+        <h1> My Mail <small>mail service</small></h1>
+      </div>
+      <div class="menu_nav">
+        <ul>
+          <li><a href="{% url 'userhome' %}"> Home </a></li>
+		  
+		  <li><a href="{% url 'profile' %}"> Profile </a></li>
+     
+		  <li><a href="{% url 'logout' %}"> Logout </a></li>
+		  
+        </ul>
+      </div>
+      <div class="clr"></div>
+      <div class="slider">
+        <div id="coin-slider"> <a href="#"><img src="{% static 'Medic_template/images/slide1.jpg' %}" width="935" height="293" alt="" /> </a> <a href="#"><img src="{% static 'Medic_template/images/slide2.jpg' %}" width="935" height="293" alt="" /> </a> <a href="#"><img src="{% static 'Medic_template/images/slide3.jpg' %}" width="935" height="293" alt="" /> </a> </div>
+        <div class="clr"></div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">
+          <h2>Profile</h2>
+        </div>
+        <div class="article">
+          <div class="clr">
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		 
+
+
+
+
+
+<form action="{% url 'saveuserdetails' %}" method="post" name="myform" class="box">
+
+
+{% csrf_token %}
+{% if data %}
+{% for v in data %}
+<table width="767" height="549">
+
+<tr>
+<td><strong> Date of Birth  </strong></td>
+<td>
+  <input type="text" name="txtage" id="txtage" onFocus="(this.type='date')" onBlur="(this.type='text')" placeholder="{{v.DOB}}" required>  </td></tr>
+  <tr>
+  <td><strong> Gender  </strong></td>
+   <td>
+
+  <input type="radio" name="radgender" id="mal" value="Male" {% if v.Gender == "Male" %} checked="checked" {% endif %}/>
+ Male
+                       
+  <input type="radio" name="radgender" id="femake" value="Female" {% if v.Gender == "Female" %} checked="checked" {% endif %}/>
+ Female      </td></tr>             
+
+<td><strong> Country  </strong></td>
+<td>
+  <select name="country" id="country" required>
+    <option value="00"> {{v.Country}} </option>
+   
+{% for n in cnt %}
+
+    <option value="{{ n.Country }}"> {{ n.Country }} </option>
+    
+{% endfor %}
+
+  </select></td></tr>
+<tr>
+<td><strong> State  </strong></td>
+<td>
+  <select name="state" id="state" required>
+    <option value="00"> {{v.State}} </option>
+  </select></td></tr>
+<tr>
+<td><strong> District  </strong></td>
+<td>
+  <select name="district" id="district">
+    <option value="00"> {{v.District}} </option>
+  </select></td></tr>
+<tr>
+<td><strong> Phone No  </strong></td>
+<td>
+  <input type="text" name="txtphone" id="txtphone" placeholder="{{v.Phone_No}}" required></td></tr>
+<tr>
+<td><strong> Hobby  </strong></td>
+<td>
+
+
+{% for c in hob %}
+    <input type="checkbox" name="chkhob" id="chkhob" value="{{c.Hobby}}" /> 
+    {{c.Hobby}}
+    {% endfor %} </td></tr>
+
+<tr>
+<td></td>
+<td>
+  <input name="btnsave" type="submit" id="btnsave" value="Update" /></td>
+</tr>
+</table>
+
+  {% endfor %}
+  {% else %}
+  <table width="767" height="549">
+
+<tr>
+<td><strong> Date of Birth  </strong></td>
+<td>
+  <input type="text" name="txtage" id="txtage" onFocus="(this.type='date')" onBlur="(this.type='text')" placeholder="{{v.DOB}}" required>  </td></tr>
+  <tr>
+  <td><strong> Gender  </strong></td>
+   <td>
+
+  <input type="radio" name="radgender" id="mal" value="Male" {% if v.Gender == "Male" %} checked="checked" {% endif %}/>
+ Male
+
+  <input type="radio" name="radgender" id="femake" value="Female" {% if v.Gender == "Female" %} checked="checked" {% endif %}/>
+ Female      </td></tr>
+
+<td><strong> Country  </strong></td>
+<td>
+  <select name="country" id="country" required>
+    <option value="00"> {{v.Country}} </option>
+
+{% for n in cnt %}
+
+    <option value="{{ n.Country }}"> {{ n.Country }} </option>
+
+{% endfor %}
+
+  </select></td></tr>
+<tr>
+<td><strong> State  </strong></td>
+<td>
+  <select name="state" id="state" required>
+    <option value="00"> {{v.State}} </option>
+  </select></td></tr>
+<tr>
+<td><strong> District  </strong></td>
+<td>
+  <select name="district" id="district">
+    <option value="00"> {{v.District}} </option>
+  </select></td></tr>
+<tr>
+<td><strong> Phone No  </strong></td>
+<td>
+  <input type="text" name="txtphone" id="txtphone" placeholder="{{v.Phone_No}}" required></td></tr>
+<tr>
+<td><strong> Hobby  </strong></td>
+<td>
+
+
+{% for c in hob %}
+    <input type="checkbox" name="chkhob" id="chkhob" value="{{c.Hobby}}" />
+    {{c.Hobby}}
+    {% endfor %} </td></tr>
+
+<tr>
+<td></td>
+<td>
+  <input name="btnsave" type="submit" id="btnsave" value="Upload" /></td>
+</tr>
+</table>
+  {% endif %}
+
+</form>
+
+
+
+
+
+
+
+
+
+<script>
+$(document).ready(function(){
+$("#country").change(function()
+{
+
+var countryid=$(this).val();
+
+
+$.ajax({
+url:'{% url "getstate" %}',
+data:{
+'cid':countryid
+},
+success:function(data){
+
+$("#state").html(data);
+}
+
+
+});
+
+});
+});
+
+
+
+
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#state").change(function()
+{
+
+var stateid=$(this).val();
+
+
+$.ajax({
+url:'{% url "getdistrict" %}',
+data:{
+'sid':stateid
+},
+success:function(data){
+
+$("#district").html(data);
+}
+
+
+});
+
+});
+});
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<script>
+$(document).ready(function(){
+$("#txtuser").change(function () { 
+
+var tusername = $(this).val();
+
+$.ajax({
+url: '{% url "validate_username" %}',
+data: {
+'Username': tusername
+},
+dataType: 'json',
+success: function (data) {
+
+if (data.is_taken) {
+var msg= data.error_message;
+//$( ".inner" ).append( "<p>Sorry</p>"+msg );
+//console.log(msg, 'change')
+alert("Sorry "+msg);
+$("#btnsave").hide();
+}
+else
+{
+alert("Username is valid");
+$("#btnsave").show();
+}
+}
+});
+
+
+});
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+		  
+		  
+	
+	
+	
+	
+	
+		  
+		  
+</div>		  
+</div>
+		  
+      </div>
+	  
+	 
+      <div class="sidebar">
+        
+        <div class="clr"></div>
+        <div class="gadget">
+          <h2 class="star"><span>Sidebar</span> Menu</h2>
+          <div class="clr"></div>
+          <ul class="sb_menu">
+          <li><a href="{% url 'composemail' %}"> Composemail </a></li>
+          <li><a href="{% url 'inbox' %}"> Inbox </a></li>
+          <li><a href="{% url 'savedmails' %}"> Savemails </a></li>
+          <li><a href="{% url 'addcontact' %}"> Add Contacts </a></li>
+		  
+		  <li><a href="{% url 'spam' %}"> Spam </a></li>
+          </ul>
+        </div>
+        
+		
+		
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,122 @@
+/* CSS Document */
+body{
+margin:0;
+padding-top: 180px;
+  background-image: url(image/input-bg-01.jpg);
+  background-size: inherit;
+  background-repeat: no-repeat;
+  background-position: 50% 30%;
+  color:#807373;
+
+
+}
+
+.box{
+	width:500px;
+	padding:40px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	background:rgba(33,41,51,.2);
+	text-align:center;
+	height:auto;
+	border-radius:24px;
+	
+}
+
+
+
+.box1{
+	width:300px;
+	padding:30px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	background:rgba(33,41,51,.2);
+	text-align:center;
+	height:300px;
+	border-radius:34px;
+	
+}
+
+
+
+
+.box input[type="text"],.box input[type="password"],.box textarea,.box select,.box input[type="mail"],.box input[type="date"],.box1 input[type="text"],.box1 input[type="password"],.box1 textarea,.box select,.box1 input[type="mail"],.box1 input[type="date"]
+{
+border:0;
+background:none;
+display:block;
+margin:10px auto;
+text-align:center;
+border:2px solid #886e6c;
+padding:14px 10px;
+width:200px;
+outline:none;
+color:#807373;
+border-radius:24px;
+transition:0.25s;
+}
+
+.box input[type="text"]:focus,.box input[type="password"]:focus,.box textarea:focus,.box select:focus,.box input[type="mail"]:focus,.box input[type="date"]:focus, .box1 input[type="text"]:focus,.box1 input[type="password"]:focus,.box1 textarea:focus,.box1 select:focus,.box1 input[type="mail"]:focus,.box1 input[type="date"]:focus
+{
+width:280px;
+border-color:#ffffff;
+}
+
+.box input[type="submit"], .box1 input[type="submit"]{
+border:0;
+background:none;
+display:block;
+margin:10px auto;
+text-align:center;
+border:2px solid #886e6c;
+padding:14px 10px;
+width:200px;
+outline:none;
+color:#886e6c;
+border-radius:24px;
+transition:0.25s;
+cursor:pointer;
+}
+.box input[type="submit"]:hover, .box1 input[type="submit"]:hover{
+background:#383e30;
+}
+
+.box h1{
+text-align:center;
+text-transform:uppercase;
+color:#550f18;
+}
+
+
+.box input[type="radio"]{
+border:0;
+background:none;
+display: inline-grid;
+margin:10px auto;
+
+width:50px;
+}
+
+.box1 p{
+font-family:Arial, Helvetica, sans-serif;
+font-style:italic;
+color:#54494a;
+}
+
+.box1 h2{
+text-align:center;
+text-transform:uppercase;
+color:#550f18;
+}
+
+.box input[type="radio"] label span{
+  color: white;
+}
+
+.box1 a{
+	color:#772e2ee0
+}
