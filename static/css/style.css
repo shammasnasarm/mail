@@ -3,7 +3,7 @@ body{
 margin:0;
 padding-top: 180px;
   background-image: url(image/input-bg-01.jpg);
-  background-size: inherit;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 30%;
   color:#807373;
